@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Share Tech', sans-serif;
+}
+
+header {
+    background-color: #ff3f3f;
+    color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.current_page{
+    background-color: rgb(140, 0, 0);
+    padding: 50px;
+}
+
+.logo h1 {
+    margin: 15px;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h1{ 
+    font-size: 50px;
+}
+
+.Topic{
+    font-size: 30px;
+    margin: 50px;
+}
+
+.Descritption{
+    padding: 50px;
+    font-size: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.AboutCat{
+    padding: 50px;
+}
+
+.end{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tomatocat{
+    margin-top: 45px;
+}
+
+.blog{
+    margin: 50px;
+}
+
+.blog_title{
+    font-size: 30px;
+}
+.blog_main_title{
+    font-size: 50px;
+    font-weight: 1000;
+}
+
+.blog_text{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.blog_img{
+    margin: 20px;
+    width: 1200px;
+    height: 700px;
+}
