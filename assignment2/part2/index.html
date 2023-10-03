@@ -7,22 +7,46 @@
     <title>TimeNow</title>
 </head>
 <body>
-    <header class="flex justify-between mx-auto">
+    <header class="flex justify-between mx-auto items-center">
         <!--first part-->
-        <div class="flex items-center  w-1/2 pl-6 md:pl-16 lg:pl-36 mt-8 md:mt-16">
+        <div class="flex items-center  w-1/2 pl-4 md:pl-10 lg:pl-24 mt-8 md:mt-16">
             <img src="Assets/Logo.svg" alt="" class="mr-14">
-            <p class="text-[#425466] text-xl mr-4">Features</p>
-            <p class="text-[#425466] text-xl mr-4">Pricing</p>
+            <p class="text-[#425466] text-xl mr-4 hidden md:flex">Features</p>
+            <p class="text-[#425466] text-xl mr-4 hidden md:flex">Pricing</p>
         </div>
+        <img src="Assets/Hamburger Menu.svg" alt="" class="md:hidden mt-8 pr-4">
         <!--second part-->
-        <div class="hidden pt-14 bg-[#46ccde] w-1/2 justify-end md:flex lg:pr-36">
-            <div class="bg-[#1d1b67] rounded h-[60px] w-[181.4px] ">
+        <div class="hidden pt-14 bg-[#46ccde] w-1/2 justify-end md:flex md:pr-10 lg:pr-36">
+            <div class="bg-[#1d1b67] rounded h-[60px]">
                 <p class="text-white p-4 font-semibold text-xl">Start Scheduling</p>
             </div>
         </div>
     </header>
     <main>
-
+        <!--Part1-->
+        <div class="md:flex">
+            <!--Block 1-->
+            <div class="md:w-1/2 my-auto px-4 md:px-8 lg:pl-24    pt-10 pb-6">
+                <h1 class="text-[#1d1b67] text-4xl font-bold">Post when your audience is most active.</h1>
+                <p class="text-[#425466] mt-3">With TimeNow, automatically schedule your posts on Twitter, LinkedIn, and Instagram to post when your followers are most active.</p>
+                <div class="flex md:block lg:flex items-center justify-between mt-4">
+                    <div class="bg-[#1d1b67] rounded h-[60px] flex justify-center items-center">
+                        <p class="text-white font-semibold text-xl p-4">Start Scheduling</p>
+                    </div>
+                    <p class="text-[#425466] font-semibold text-xl p-4">View Demo</p>
+                </div>
+                <div class="flex items-start mt-4">
+                    <img src="Assets/Shield.svg" alt="" class="mr-3">
+                    <p class="text-[#425466]">TimeNow does not sell your data. <span class="underline font-semibold">Learn more</span></p>
+                </div>
+            </div>
+            <!--Block 2-->
+            <div class="bg-[#46ccde] md:w-1/2 flex items-center">
+                <img src="Assets/Mockup.png" alt="" class="p-6">
+            </div>
+        </div>
+        <!--Part2-->
+        
     </main>
     <footer>
 
