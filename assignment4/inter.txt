@@ -1,0 +1,137 @@
+Sure, let's go through each of the exercises one by one:
+
+**1.1 Array**
+
+The task here is to create a function that takes an initial array and the ID of an employee and returns an array of all manager IDs in the hierarchy.
+
+To achieve this, you can create a function like this:
+
+```javascript
+function findManagerHierarchy(employees, employeeId) {
+  const managerIds = [];
+  let currentEmployee = employees.find(emp => emp.employeeId === employeeId);
+
+  while (currentEmployee && currentEmployee.managerId !== currentEmployee.employeeId) {
+    managerIds.push(currentEmployee.managerId);
+    currentEmployee = employees.find(emp => emp.employeeId === currentEmployee.managerId);
+  }
+
+  return managerIds;
+}
+
+const employees = [
+  { employeeId: 11, name: 'John', managerId: 11 },
+  { employeeId: 50, name: 'Todd', managerId: 73 },
+  { employeeId: 150, name: 'Alex', managerId: 200 },
+  { employeeId: 73, name: 'Sara', managerId: 11 },
+  { employeeId: 200, name: 'Alex', managerId: 50 },
+  { employeeId: 100, name: 'Alex', managerId: 150 },
+];
+
+const managerIds = findManagerHierarchy(employees, 100);
+console.log(managerIds); // This will output [150, 200, 50, 73, 11] for employeeId 100
+```
+
+This function uses a `while` loop to traverse the employee hierarchy, starting from the given employee and moving up to their manager. It keeps adding manager IDs to the `managerIds` array until it reaches the top-level manager or encounters a circular reference.
+
+**1.2 'this' keyword**
+
+In the provided code, there are two questions commented out:
+
+```javascript
+object.printName(); // what we will see here
+
+const printName = object.printName;
+
+printName(); // what we will see in the console here
+```
+
+1. When you call `object.printName()`, it will correctly log "John Cohnor" to the console. Inside the `printName` method, `this` refers to the `object`, so it accesses the `name` property of the `object`.
+
+2. However, when you assign the `object.printName` method to the `printName` variable and then call `printName()`, it will result in `undefined` logged to the console. This happens because the `this` context is lost when calling the method without the object. To fix this, you can use the `.bind` method to explicitly set the `this` context:
+
+```javascript
+const printName = object.printName.bind(object);
+printName(); // This will log "John Cohnor"
+```
+
+**1.3 What will the following code output to the console and why:**
+
+```javascript
+var hero = { 
+	_name: 'John Doe', 
+	getSecretIdentity: function (){ 
+		return this._name; 
+	}
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+```
+
+In this code, the first `console.log(stoleSecretIdentity());` will output `undefined`, while the second `console.log(hero.getSecretIdentity());` will output `'John Doe'`.
+
+The issue here is related to how the `this` keyword works in JavaScript. When you assign the `hero.getSecretIdentity` method to the `stoleSecretIdentity` variable, it loses its association with the `hero` object. As a result, `this` inside `stoleSecretIdentity` becomes undefined, and it returns undefined when called.
+
+In the second `console.log(hero.getSecretIdentity());`, you are calling `getSecretIdentity` directly on the `hero` object, so `this` inside the method still refers to the `hero` object, and it correctly returns `'John Doe'`.
+
+**1.4 Consider the following code. What will the output be, and why:**
+
+```javascript
+(function () { 
+	try { 
+		throw new Error(); 
+	} catch (x) { 
+		var x = 1, y = 2; 
+		console.log(x); 
+	} 
+	
+	console.log(x); 
+	console.log(y);
+})();
+```
+
+The output of this code will be:
+
+```
+1
+undefined
+2
+```
+
+Here's why:
+
+1. Inside the `try` block, you throw an error, which triggers the `catch` block.
+
+2. In the `catch` block, you declare a variable `x` and initialize it with `1`, and you also declare `y` and initialize it with `2`. These variables are scoped to the `catch` block.
+
+3. Inside the `catch` block, you log the value of `x`, which is `1`. This is the first `console.log(x);` line.
+
+4. After the `catch` block, you try to log the value of `x` and `y` again. However, `x` is not accessible outside the `catch` block, so it logs `undefined`. `y` is still accessible, so it logs `2`.
+
+**1.5 What do the following lines output, and why:**
+
+```javascript
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+The output of these lines will be:
+
+```
+true
+false
+```
+
+Here's why:
+
+1. `console.log(1 < 2 < 3);`: This is evaluated as `(true < 3)` and then `(1 < 3)`, which is `true`.
+
+2. `console.log(3 > 2 > 1);`: This is evaluated as `(true > 1)` and then `(1 > 1)`, which is `false`.
+
+In JavaScript, the comparison operators (`<`, `>`) are left-to-right associative, so the expressions are evaluated from left to right. However, the first comparison produces a boolean (`true`), and when comparing a boolean to a number, JavaScript coerces the boolean to a number (`true` becomes `1`, and `false` becomes `0`). Hence, you get the results as shown.
+
+**1.6 What will the following code output and why:**
+
+Unfortunately, you didn't provide the code for this question. If you have a specific code snippet you'd like me to explain or evaluate, please provide it, and I'd be happy to help.
