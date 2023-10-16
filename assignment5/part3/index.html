@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#fbf8f3] ">
+    <header class="lg:px-44 py-6">
+        <div class="flex justify-between items-center">
+            <h1 class="text-4xl font-extrabold p-2">Library Catalog</h1>
+            <div class="">
+                <button id="b1" onclick="onShowAll()" class="m-1 md:m-0" >
+                    <div class="border-4 border-[#4d13d1] rounded-lg" onmouseover="classList.add('text-white', 'bg-[#4d13d1]')" onmouseout="classList.remove('text-white', 'bg-[#4d13d1]')">
+                        <p class="text-xl p-2 font-bold">Show all</p>
+                    </div>
+                </button>
+                <br class="md:hidden">
+                <button id="b2" onclick="onAddNew()" class="m-1 md:m-0">
+                    <div class="border-4 border-[#4d13d1] rounded-lg" onmouseover="classList.add('text-white', 'bg-[#4d13d1]')" onmouseout="classList.remove('text-white', 'bg-[#4d13d1]')">
+                        <p class="text-xl p-2 font-bold">Add new</p>
+                    </div>
+                </button>
+                <br class="md:hidden">
+                <button id="b3" onclick="onSearch()" class="m-1 md:m-0">
+                    <div class="border-4 border-[#4d13d1] rounded-lg" onmouseover="classList.add('text-white', 'bg-[#4d13d1]')" onmouseout="classList.remove('text-white', 'bg-[#4d13d1]')">
+                        <p class="text-xl p-2 font-bold">Search</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="lg:px-44">
+        <div class="bg-[#fde3a7] rounded-lg p-4" id="container">
+            <p>Choose something</p>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
