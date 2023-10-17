@@ -32,6 +32,8 @@ function initialize(){
     top_btns.append(button)
 }
 
+let tablo
+
 function start_quiz(){
     var p = document.createElement("p");
     title = p
@@ -65,6 +67,14 @@ function start_quiz(){
     }
 
     var button = document.createElement("button");
+    button.addEventListener("click", function () {
+        let res = 0
+        correct.forEach(element => {
+            if (element)
+                res++
+        });
+        alert(`Your score: ${res}/5!`)
+    })
     button.className = "mx-5";
 
     var div = document.createElement("div");
@@ -80,6 +90,7 @@ function start_quiz(){
     var p2 = document.createElement("p");
     p2.className = "text-xl font-md mx-1";
     p2.textContent = "0/5";
+    tablo = p2
     qq_counter = p2
     innerDiv.appendChild(p1);
     div.appendChild(innerDiv);
@@ -196,37 +207,28 @@ function q_generator(question, answers, isOneAnswer, correctAnswers){
     main.appendChild(motherContainer)
 }
 
-function Submit(){
-    
-    if (nowSingle){
-        
-        if(document.getElementById(curr_cA).checked){
-            alert("CORRECT")
+let answered = [false, false, false, false, false]
+let correct = [false, false, false, false, false]
 
-        }else{
-            alert("INCORRECT")
-        }
-        switch (current_q) {
-            case 1:
-                show_q2()
-                break;
-            case 2:
-                show_q3()
-                break;
-            case 3:
-                show_q4()
-                break;
-            case 4:
-                show_q5()
-                break;
-            case 5:
-                
-                break;
-            
-        }
-    }else{
-        
+async function Submit(){
+    if(document.getElementById(curr_cA).checked){
+        correct[current_q - 1] = true  
     }
+    answered[current_q - 1] = true
+
+    let str_name = `q_b${current_q}`
+    console.log(str_name)
+    let btn = await document.getElementById(str_name)
+    btn.classList.add('bg-[#4d13d1]', 'rounded-lg', 'text-white')
+
+    submitted_num = 0
+
+    answered.forEach(element => {
+        if (element){
+            submitted_num ++
+        }
+    });
+    tablo.textContent = `${submitted_num}/5`
 }
 
 initialize()
