@@ -1,5 +1,6 @@
 const res = document.getElementById("weather")
 const button = document.getElementById("button")
+const apikey = "ENTER YOUR API KEY!"
 
 let lon;
 let lat;
@@ -17,7 +18,7 @@ button.addEventListener("click", async () => {
       lat = position.coords.latitude
     })
     console.log(lat + " " + lon)
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=78be1b6495bf41c49f7e25c944f7300b`)        
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`)        
       .then(response => {
         if (!response.ok) {
           throw new Error('Ошибка HTTP: ' + response.status);
@@ -27,7 +28,7 @@ button.addEventListener("click", async () => {
       .then(data => {
         // Извлекаем значение "main" и отображаем его
         const weatherMain = data.weather[0].main;
-        res.textContent = `Текущая погода: ${weatherMain}`;
+        res.textContent = `${weatherMain}`;
       })
       .catch(error => {
         res.textContent = 'Произошла ошибка: ' + error.message;
